@@ -10,14 +10,14 @@ const connect = require("./model/db")
 const Path = require('path')
 PORT = process.env.PORT;
 
-
+const PUBLIC_DIR = "build"
 
 
 
 // app.use(bodyparser);
 app.use(express.json())
 app.use(cors());
-app.use(express.static(Path.join(__dirname, process.env.PUBLIC_DIR)))
+app.use(express.static(Path.join(__dirname, PUBLIC_DIR)))
 app.use('/auth', auth);
 app.use('/products', productauth);
 app.use("*", (req, res) => {
